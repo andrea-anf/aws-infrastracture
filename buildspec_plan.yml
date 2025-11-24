@@ -15,7 +15,7 @@ phases:
 
   build:
     commands:
-      - terraform plan -input=false
+      - terraform plan -input=false --out=tfplan
 
   post_build:
     commands:
@@ -24,5 +24,4 @@ phases:
 artifacts:
   files:
     - tfplan
-    - .terraform/**/*
     - '**/*'
