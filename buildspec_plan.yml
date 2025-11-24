@@ -31,4 +31,4 @@ phases:
 artifacts:
   name: TerraformPlan
   files:
-    - artifacts/$BuildTag-terraform.tfplan 
+    - /artifacts/$BuildTag-terraform.tfplan 
