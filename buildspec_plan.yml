@@ -1,10 +1,5 @@
 version: 0.2
 
-env:
-  exported-variables:
-    - BuildID
-    - BuildTag
-
 phases:
   install: 
     runtime-versions:
@@ -21,14 +16,13 @@ phases:
   build:
     commands:
       - terraform plan -input=false
-      - "export BuildID=`echo $CODEBUILD_BUILD_ID | cut -d: -f1`"
-      - "export BuildTag=`echo $CODEBUILD_BUILD_ID | cut -d: -f2`"
 
   post_build:
     commands:
       - echo "Terraform plan completed on `date`"
 
 artifacts:
-  name: TerraformPlan
   files:
-    - /artifacts/$BuildTag-terraform.tfplan 
+    - tfplan
+    - .terraform/**/*
+    - '**/*'
