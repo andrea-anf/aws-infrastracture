@@ -20,7 +20,3 @@ phases:
   post_build:
     commands:
       - echo "Terraform completed on `date`"
-
-artifacts:
-  files:
-    - '**/*' 
