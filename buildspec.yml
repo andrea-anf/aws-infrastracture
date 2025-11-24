@@ -9,11 +9,14 @@ phases:
       - "curl -s -qL -o terraform.zip https://releases.hashicorp.com/terraform/1.14.0/terraform_1.14.0_linux_amd64.zip"
       - "unzip -o terraform.zip"
 
-  build:
+  pre_build:
     commands:
       - cd "$CODEBUILD_SRC_DIR"
       - terraform init -input=false 
-      - terraform plan -input=false  -auto-approve
+      - terraform plan -input=false
+  build:
+    commands:
+      - terraform apply -input=false -auto-approve
 
   post_build:
     commands:
