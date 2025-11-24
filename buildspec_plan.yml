@@ -21,8 +21,8 @@ phases:
   build:
     commands:
       - terraform plan -input=false
-      - "export BuildID='echo $CODEBUILD_BUILD_ID | cut -d: -f1'"
-      - "export BuildTag='echo $CODEBUILD_BUILD_ID | cut -d: -f2'"
+      - "export BuildID=`echo $CODEBUILD_BUILD_ID | cut -d: -f1`"
+      - "export BuildTag=`echo $CODEBUILD_BUILD_ID | cut -d: -f2`"
 
   post_build:
     commands:
