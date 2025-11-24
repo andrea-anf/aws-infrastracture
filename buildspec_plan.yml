@@ -31,4 +31,4 @@ phases:
 artifacts:
   name: TerraformPlan
   files:
-    - terraform-infrastracture/artifacts/$env-terraform.tfplan 
+    - terraform-infrastracture/artifacts/$BuildID-terraform.tfplan 
