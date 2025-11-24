@@ -1,0 +1,19 @@
+version: 0.2
+
+
+phases:
+  install: 
+    runtime-versions:
+      python: 3.7
+    commands:
+      - "curl -s -qL -o terraform.zip https://releases.hashicorp.com/terraform/1.14.0/terraform_1.14.0_linux_amd64.zip"
+      - "unzip -o terraform.zip -d /usr/local/bin"
+      - "chmod 755 /usr/local/bin/terraform"
+
+  build:
+    commands:
+      - terraform validate
+
+  post_build:
+    commands:
+      - echo "Terraform validate completed on `date`"
