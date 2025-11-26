@@ -10,20 +10,20 @@ terraform {
   # Configurazione del Backend (S3 + DynamoDB) per la gestione remota e sicura dello stato
   # Modifica i valori 'bucket' e 'dynamodb_table' con i tuoi nomi reali
   backend "s3" {
-    bucket         = "terraform-infrastracture" 
-    key            = "terraform.tfstate"
-    region         = "eu-south-1"                  
-    encrypt        = true                          
+    bucket  = "terraform-infrastracture"
+    key     = "terraform.tfstate"
+    region  = "eu-south-1"
+    encrypt = true
   }
 }
 
 provider "aws" {
-  region = "eu-south-1" 
+  region = "eu-south-1"
 
   default_tags {
     tags = {
-      project    = "sandbox"
-      terraform   = "true"
+      project   = "sandbox"
+      terraform = "true"
     }
   }
 }
