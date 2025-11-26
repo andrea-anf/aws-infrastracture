@@ -41,7 +41,7 @@ resource "aws_lb_target_group" "lb_80" {
 resource "aws_security_group" "load_balancer" {
   name        = "load-balancer-sg"
   description = "controls access to the ALB"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = module.vpc.vpc_id
 
   ingress {
     protocol    = "tcp"

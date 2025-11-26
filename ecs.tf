@@ -109,10 +109,6 @@ resource "aws_security_group" "ecs_tasks" {
 resource "aws_iam_role" "ecs_task_execution_role" {
   name               = "${var.project}-ecs-task-execution-role"
   assume_role_policy = data.aws_iam_policy_document.task_assume_role_policy.json
-
-  tags = {
-    Scenario = var.scenario
-  }
 }
 
 data "aws_iam_policy_document" "task_assume_role_policy" {
