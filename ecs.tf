@@ -32,7 +32,7 @@ resource "aws_ecs_service" "sample_app" {
   }
 }
 
-resource "aws_ecs_task_definition" "this" {
+resource "aws_ecs_task_definition" "sample_app" {
   family                   = "${var.project}-first-ecs-task-definition"
   network_mode             = "awsvpc"
   required_compatibilities = ["FARGATE"]
@@ -44,7 +44,7 @@ resource "aws_ecs_task_definition" "this" {
   container_definitions = jsonencode([
     {
       name      = "${var.project}-first"
-      image     = "${aws_ecr_repository.sample_app.repository_url}:latest"
+      image     = "${data.aws_ecr_repository.sample_app.repository_url}:latest"
       cpu       = var.cpu_units
       memory    = var.memory
       essential = true
@@ -89,7 +89,7 @@ resource "aws_security_group" "ecs_container_instance" {
 resource "aws_security_group" "ecs_tasks" {
   name        = "ecs-tasks-sg"
   description = "allow inbound access only from the ALB"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = module.vpc.vpc_id
 
   ingress {
     protocol        = "tcp"
