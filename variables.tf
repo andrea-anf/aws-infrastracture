@@ -6,7 +6,7 @@ variable "app_port" {
 
 variable "project" {
   type        = string
-  default     = "project-name"
+  default     = "sample-app"
   description = "The project name"
 }
 
