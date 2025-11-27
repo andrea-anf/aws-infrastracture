@@ -9,3 +9,15 @@ variable "project" {
   default     = "project-name"
   description = "The project name"
 }
+
+variable "cpu" {
+  type        = number
+  default     = 128
+  description = "CPU used by tasks"
+}
+
+variable "memory" {
+  type        = number
+  default     = 512
+  description = "RAM used by tasks"
+}

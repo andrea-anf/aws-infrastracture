@@ -38,14 +38,14 @@ resource "aws_ecs_task_definition" "sample_app" {
   required_compatibilities = ["FARGATE"]
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
   task_role_arn            = aws_iam_role.ecs_task_iam_role.arn
-  cpu                      = 256
-  memory                   = 512
+  cpu                      = var.cpu
+  memory                   = var.memory
 
   container_definitions = jsonencode([
     {
       name      = "${var.project}-first"
       image     = "${data.aws_ecr_repository.sample_app.repository_url}:latest"
-      cpu       = var.cpu_units
+      cpu       = var.cpu
       memory    = var.memory
       essential = true
       portMappings = [
@@ -58,6 +58,9 @@ resource "aws_ecs_task_definition" "sample_app" {
     }
   ])
 }
+
+##### IAM ######
+
 
 resource "aws_security_group" "ecs_container_instance" {
   name        = "${var.project}-ecs-task-sg"
