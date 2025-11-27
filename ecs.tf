@@ -10,8 +10,8 @@ resource "aws_ecs_service" "sample_app" {
   cluster                            = aws_ecs_cluster.this.id
   task_definition                    = aws_ecs_task_definition.sample_app.arn
   desired_count                      = 1
-  deployment_minimum_healthy_percent = 0
-  deployment_maximum_percent         = 3
+  deployment_minimum_healthy_percent = 1
+  deployment_maximum_percent         = 100
   launch_type                        = "FARGATE"
 
   load_balancer {
