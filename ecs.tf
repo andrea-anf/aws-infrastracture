@@ -16,7 +16,7 @@ resource "aws_ecs_service" "sample_app" {
 
   load_balancer {
     target_group_arn = aws_lb_target_group.lb_80.arn
-    container_name   = var.project
+    container_name   = "${var.project}-first"
     container_port   = var.app_port
   }
 
