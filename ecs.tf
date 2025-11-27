@@ -35,7 +35,7 @@ resource "aws_ecs_service" "sample_app" {
 resource "aws_ecs_task_definition" "sample_app" {
   family                   = "${var.project}-first-ecs-task-definition"
   network_mode             = "awsvpc"
-  required_compatibilities = ["FARGATE"]
+  requires_compatibilities = ["FARGATE"]
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
   task_role_arn            = aws_iam_role.ecs_task_iam_role.arn
   cpu                      = var.cpu
