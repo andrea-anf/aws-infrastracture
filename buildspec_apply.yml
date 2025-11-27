@@ -20,3 +20,8 @@ phases:
   post_build:
     commands:
       - echo "Terraform completed on `date`"
+
+cache:
+  key: terraform-cache
+  paths:
+    - "**/*"

@@ -25,3 +25,8 @@ artifacts:
   files:
     - tfplan
     - '**/*'
+
+cache:
+  key: terraform-cache
+  paths:
+    - "**/*"

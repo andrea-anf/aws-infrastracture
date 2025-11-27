@@ -12,7 +12,7 @@ variable "project" {
 
 variable "cpu" {
   type        = number
-  default     = 128
+  default     = 256
   description = "CPU used by tasks"
 }
 
