@@ -2,7 +2,7 @@ data "aws_ecr_repository" "sample_app" {
   name = "sample-app"
 }
 
-/* resource "aws_ecs_cluster" "this" {
+resource "aws_ecs_cluster" "this" {
   name = "${var.project}-cluster"
 }
 resource "aws_ecs_service" "sample_app" {
@@ -58,7 +58,7 @@ resource "aws_ecs_task_definition" "sample_app" {
     }
   ])
 }
- */
+
 ##### IAM ######
 
 
