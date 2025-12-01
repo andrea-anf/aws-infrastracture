@@ -29,7 +29,7 @@ resource "aws_lb_target_group" "lb_80" {
 
   health_check {
     path    = "/"
-    port    = "traffic-port"
+    port    = "80"
   }
 
   depends_on = [aws_lb.this]

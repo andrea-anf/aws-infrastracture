@@ -16,7 +16,7 @@ resource "aws_ecs_service" "sample_app" {
 
   load_balancer {
     target_group_arn = aws_lb_target_group.lb_80.arn
-    container_name   = "${var.project}-first"
+    container_name   = "${var.project}"
     container_port   = var.app_port
   }
 
@@ -33,7 +33,7 @@ resource "aws_ecs_service" "sample_app" {
 }
 
 resource "aws_ecs_task_definition" "sample_app" {
-  family                   = "${var.project}-first-ecs-task-definition"
+  family                   = "${var.project}-ecs-task-definition"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
@@ -43,7 +43,7 @@ resource "aws_ecs_task_definition" "sample_app" {
 
   container_definitions = jsonencode([
     {
-      name      = "${var.project}-first"
+      name      = "${var.project}"
       image     = "${data.aws_ecr_repository.sample_app.repository_url}:latest"
       cpu       = var.cpu
       memory    = var.memory
