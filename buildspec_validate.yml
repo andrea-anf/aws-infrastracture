@@ -17,8 +17,3 @@ phases:
   post_build:
     commands:
       - echo "Terraform validate completed on `date`"
-
-cache:
-  key: terraform-cache
-  paths:
-    - "**/*"
