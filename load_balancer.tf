@@ -36,7 +36,7 @@ resource "aws_lb_target_group" "lb_80" {
 }
 
 
-# SG to allow access only for port 3000
+# SG to allow access
 resource "aws_security_group" "load_balancer" {
   name        = "load-balancer-sg"
   description = "controls access to the ALB"
