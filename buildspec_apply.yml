@@ -13,7 +13,7 @@ phases:
 
   build:
     commands:
-      - terraform apply -input=false tfplan -destroy
+      - terraform apply -destroy tfplan 
 
   post_build:
     commands:
